@@ -11,6 +11,6 @@ export class CartService {
   constructor(private http: HttpClient ) { }
   // http response as Observable
   getCartDetails(): Observable<cartProducts[]> {
-    return this.http.get<cartProducts[]>('./../../assets/data/product.json');
+    return this.http.get<cartProducts[]>('https://api.jsonbin.io/b/5cae9a54fb42337645ebcad3');
   }
 }
