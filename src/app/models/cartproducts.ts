@@ -1,4 +1,4 @@
-//model for product json
+// model for product json
 
 export interface cartProducts {
     index: number;
