@@ -1,0 +1,16 @@
+/* global styles go here */
+
+html,
+body {
+    height: 100%;
+    font-family: $font-regular !important;
+}
+
+// the code is used for stretching the layout even when the content is less
+.wrapper,
+app-root {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-height: 100%;
+}
