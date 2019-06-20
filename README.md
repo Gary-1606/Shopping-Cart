@@ -2,6 +2,12 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.3.
 
+## Steps to use the repository
+1. Download the repository
+2. In src/app, run 'npm install' to install the node modules
+3. Run 'npm start' or 'ng serve' to run the dev server at 'http://localhost:4200/'. 
+4. To change port, run 'ng serve --port <portnumber>'
+  
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
