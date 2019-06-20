@@ -1,4 +1,4 @@
-<div class="d-flex flex-column flex-grow-1 justify-content-center">
+<div class="d-flex flex-column flex-grow-1 justify-content-start">
     <div class="d-flex col-12 col-md-11 mx-auto flex-column">
 
         <!-- Category section -->
@@ -6,15 +6,12 @@
             <div class="section-header text-size-xl f-bold">Women's tops</div>
             <!-- filter section -->
             <div class="filter">
-                <select (change)="onChange($event.target.value)" class="custom-select-sm custom-select" [formControl]="productSizeFilterControl">
+                <select (change)="onChange($event)" class="custom-select-sm custom-select">
                     <option [ngValue]="null" hidden>Filter by size</option>
-                    <option *ngFor="let option of productSizeOptions" [ngValue]="option">
-                      {{ option }}
+                    <option *ngFor="let option of productSizeOptions" [ngValue]="option.name">
+                      {{ option.name }}
                     </option>
                 </select>
-                <select [ngModel]="selectedDeviceObj" (ngModelChange)="onChangeObj($event)" name="sel3">
-                        <option [ngValue]="i" *ngFor="let i of deviceObjects">{{i.name}}</option>
-                      </select> {{selectedDeviceObj | json}}
             </div>
         </div>
 

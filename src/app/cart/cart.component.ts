@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewEncapsulation, HostBinding } from '@angular/core';
 import { CartService } from '../services/cart.service';
-import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-cart',
@@ -12,23 +11,40 @@ export class CartComponent implements OnInit {
 
   @HostBinding('class') classes = 'wrapper px-2 px-md-3 py-4'; // adds class to the selector
 
-  public products = [];
-  productSizeFilterControl = new FormControl();
-  productSizeOptions = ['XS', 'S', 'M', 'L', 'XL'];
-  productSizeControl = new FormGroup ({
-    Size: this.productSizeFilterControl
-  });
+  public originalProductList = []; // array to hold the original json data
+  productSizeOptions = [
+    { name: 'XS' },
+    { name: 'S' },
+    { name: 'M' },
+    { name: 'L' },
+    { name: 'XL' }
+  ];
+  products: any = []; // array to hold the json data on filter
+  selectedSize = '';
+
 
   constructor(private _cartService: CartService) { }
 
-  ngOnInit() {
-    this._cartService.getCartDetails()
-        .subscribe(data => this.products = data);
+  public onChange(event): void {
+    const selectedVal = event.target.value; // value selected from dropdown captured on event change
+    this.products = this.originalProductList.filter(p => {
+      if (p.size.includes(selectedVal)) {
+        return true;
+      }
+      return false;
+    });
   }
 
-  onChange(deviceValue: any) {
-    console.log(deviceValue);
-}
+  // subscribing to the http response (Observable) and initially storing in both original array and products array
+  ngOnInit() {
+    this._cartService.getCartDetails()
+        .subscribe(data => {
+          this.originalProductList = data;
+          this.products = data;
+        });
+  }
+
+
 
 
 }
