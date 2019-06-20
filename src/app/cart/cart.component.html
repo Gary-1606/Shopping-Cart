@@ -19,7 +19,7 @@
         <div class="d-flex flex-wrap justify-content-center justify-content-sm-start">
             <a *ngFor="let item of products" href="javascript:void(0)" class="d-flex border p-2 flex-column text-decoration-none flex-grow-1 col-9 col-sm-6 col-md-4 col-lg-3">
                 <!-- product image -->
-                <img src="../../assets/images/{{item.productImage}}" class="product-img d-flex mx-auto mx-md-0" />
+                <img src="../../assets/images/{{item.productImage}}" class="mw-100 d-flex mx-auto" />
                 <!-- sale / exclusive section -->
                 <div class="d-flex options-section">
                     <div [ngClass]="{'d-none': !(item.isSale)}" class="py-2 px-4 bg-sale mr-2">
